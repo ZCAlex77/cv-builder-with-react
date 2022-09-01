@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react';
+import GeneralSection from './components/GeneralSection';
+import './styles/index.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      editForms: [false],
+    };
+    this.toggleEdit = this.toggleEdit.bind(this);
+  }
+
+  toggleEdit(index) {
+    this.setState({
+      editForms: this.state.editForms.map((f, i) => (i === index ? !f : false)),
+    });
+  }
+
+  render() {
+    return (
+      <div className="app">
+        <header>
+          <h1>CV BUILDER</h1>
+        </header>
+        <div className="cv">
+          <GeneralSection
+            editForms={this.state.editForms}
+            toggleEdit={this.toggleEdit}
+          />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
