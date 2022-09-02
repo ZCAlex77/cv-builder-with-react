@@ -1,12 +1,13 @@
 import { Component } from 'react';
 import GeneralSection from './components/GeneralSection';
+import EducationSection from './components/EducationSection';
 import './styles/index.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      editForms: [false],
+      editForms: [false, false],
     };
     this.toggleEdit = this.toggleEdit.bind(this);
   }
@@ -25,6 +26,10 @@ class App extends Component {
         </header>
         <div className="cv">
           <GeneralSection
+            editForms={this.state.editForms}
+            toggleEdit={this.toggleEdit}
+          />
+          <EducationSection
             editForms={this.state.editForms}
             toggleEdit={this.toggleEdit}
           />
