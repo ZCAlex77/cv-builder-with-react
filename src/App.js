@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import GeneralSection from './components/GeneralSection';
 import EducationSection from './components/EducationSection';
 import './styles/index.css';
+import AboutSection from './components/AboutSection';
 
 class App extends Component {
   constructor() {
@@ -25,7 +25,7 @@ class App extends Component {
           <h1>CV BUILDER</h1>
         </header>
         <div className="cv">
-          <GeneralSection
+          <AboutSection
             editForms={this.state.editForms}
             toggleEdit={this.toggleEdit}
           />
